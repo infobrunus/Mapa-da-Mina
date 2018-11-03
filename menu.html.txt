@@ -1,0 +1,12 @@
+<div class="header">
+	<div class="topo2">
+		<ul>
+			<li id="home-hover"><a href="http://negocios8.redeglobo.com.br/Paginas/home.aspx">HOME</a></li>
+			<li id="programacao-hover"><a href="http://negocios8.redeglobo.com.br/Programas/Paginas/home.aspx">PROGRAMAÇÃO</a></li>
+			<li id="projetos-hover"><a href="http://negocios8.redeglobo.com.br/Projetos/Paginas/Home.aspx">PROJETOS COMERCIAIS</a></li>
+			<li id="midia-hover"><a href="http://negocios8.redeglobo.com.br/Paginas/Midia-Kit.aspx">MIDIA KIT</a></li>
+			<li id="bip-hover"><a href="http://negocios8.redeglobo.com.br/BIP/Paginas/home.aspx">BIP</a></li>
+			<li id="sis-hover"><a target="blank" href="https://siscom.redeglobo.com.br/telaloginNI.jsp">SIS.COM</a></li>
+				</ul>
+			</div>
+</div>

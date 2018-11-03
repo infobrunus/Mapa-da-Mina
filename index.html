@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Mapa da Mina</title>
+
+	<link rel="stylesheet" type="text/css" href="css/Bootstrap/bootstrap.min.css">  
+	<link rel="stylesheet" type="text/css" href="css/style.css"> 
+	<link rel="stylesheet" type="text/css" href="css/header.css"> 
+	<link rel="stylesheet" type="text/css" href="css/turn.css"> 
+	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/turnjs4/lib/turn.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/slimScroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6ZFRKS');</script>
+<!-- End Google Tag Manager -->
+
+
+</head>
+<body>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6ZFRKS"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		<div class="header">
+			<div class="topo1">
+				<img src="img/logo-main-globo.png">
+			</div>
+			<div class="topo2">
+				<ul>
+					<li id="home-hover"><a href="http://negocios8.redeglobo.com.br/Paginas/home.aspx">HOME</a></li>
+					<li id="programacao-hover"><a href="http://negocios8.redeglobo.com.br/Programas/Paginas/home.aspx">PROGRAMAÇÃO</a></li>
+					<li id="projetos-hover"><a href="http://negocios8.redeglobo.com.br/Projetos/Paginas/Home.aspx">PROJETOS COMERCIAIS</a></li>
+					<li id="midia-hover"><a href="http://negocios8.redeglobo.com.br/Paginas/Midia-Kit.aspx">MIDIA KIT</a></li>
+					<li id="bip-hover"><a href="http://negocios8.redeglobo.com.br/BIP/Paginas/home.aspx">BIP</a></li>
+					<li id="sis-hover"><a target="blank" href="https://siscom.redeglobo.com.br/telaloginNI.jsp">SIS.COM</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fundo">
+			<div class="fixed">
+				<div class="container">
+					<div class="flex">
+						<div class="logo">
+							<img class="logo2" src="img/RedeGloboLogo2.png">
+						</div>	
+
+
+						<div class="menu-geral">
+							<section id="main-menu">
+								<div class="menu">
+
+									<div class="menu-left">
+										<img class="logo1" src="img/RedeGloboLogo.png">
+										<div class="selo">
+
+											<div id="mapa-selo"><span>MAPA</span></div>
+											<div class="linha"></div>
+											<div id="mina"><span>DA MINA</span></div>
+										</div>
+
+									</div>
+
+									<div class="menu-right">
+
+										<div class="condensada">
+											<span id="quando">QUANDO E ONDE</span>
+											<span id="investir"> INVESTIR</span>
+										</div>
+										<div class="globo-select">
+											<div class="div-estado">
+												<span class="estado-activate">ESTADO</span>
+												<b class="caret" id="caret-estado"></b>
+											</div>
+											<div class="estado">
+												<div class="estado-titulo">
+													<span>Selecione o(s) estado(s) abaixo:</span>
+												</div>
+												<div id="estado-conteudo">
+													<input id="estado-todos" type="checkbox" value="es-all" class="exibidora-check"/><label for="estado-todos"><span></span>Todos</label> 
+													<input id="acre" type="checkbox" value="ac" class="exibidora-check"><label for="acre"><span></span>Acre</label>
+													<input id="alagoas" type="checkbox" value="al" class="exibidora-check"><label for="alagoas"><span></span>Alagoas</label>
+													<input id="amapa" type="checkbox" value="ap" class="exibidora-check"><label for="amapa"><span></span>Amapá</label>
+													<input id="amazonas" type="checkbox" value="am" class="exibidora-check"><label for="amazonas"><span></span>Amazonas</label>
+													<input id="bahia" type="checkbox" value="ba" class="exibidora-check"><label for="bahia"><span></span>Bahia</label>
+													<input id="ceara" type="checkbox" value="ce" class="exibidora-check"><label for="ceara"><span></span>Ceará</label>
+													<input id="distrito" type="checkbox" value="df" class="exibidora-check"><label for="distrito"><span></span>Distrito Federal</label>
+													<input id="espirito" type="checkbox" value="es" class="exibidora-check"><label for="espirito"><span></span>Espírito Santo</label>
+													<input id="goias" type="checkbox" value="go" class="exibidora-check"><label for="goias"><span></span>Goiás</label>
+													<input id="maranhao" type="checkbox" value="ma" class="exibidora-check"><label for="maranhao"><span></span>Maranhão</label>
+													<input id="matogrosso" type="checkbox" value="mt" class="exibidora-check"><label for="matogrosso"><span></span>Mato Grosso</label>
+													<input id="matogrossosul" type="checkbox" value="ms" class="exibidora-check"><label for="matogrossosul"><span></span>Mato Grosso do Sul</label>
+													<input id="minas" type="checkbox" value="mg" class="exibidora-check"><label for="minas"><span></span>Minas Gerais</label>
+													<input id="para" type="checkbox" value="pa" class="exibidora-check"><label for="para"><span></span>Pará</label>
+													<input id="paraiba" type="checkbox" value="pb" class="exibidora-check"><label for="paraiba"><span></span>Paraíba</label>
+													<input id="parana" type="checkbox" value="pr" class="exibidora-check"><label for="parana"><span></span>Paraná</label>
+													<input id="pernambuco" type="checkbox" value="pe" class="exibidora-check"><label for="pernambuco"><span></span>Pernambuco</label>
+													<input id="piaui" type="checkbox" value="pi" class="exibidora-check"><label for="piaui"><span></span>Piauí</label>
+													<input id="riojaneiro" type="checkbox" value="rj" class="exibidora-check"><label for="riojaneiro"><span></span>Rio de Janeiro</label>
+													<input id="riograndenorte" type="checkbox" value="rn" class="exibidora-check"><label for="riograndenorte"><span></span>Rio Grande do Norte</label>
+													<input id="riograndesul" type="checkbox" value="rs" class="exibidora-check"><label for="riograndesul"><span></span>Rio Grande do Sul</label>
+													<input id="rondonia" type="checkbox" value="ro" class="exibidora-check"><label for="rondonia"><span></span>Rondônia</label>
+													<input id="roraima" type="checkbox" value="rr" class="exibidora-check"><label for="roraima"><span></span>Roraima</label>
+													<input id="santa" type="checkbox" value="sc" class="exibidora-check"><label for="santa"><span></span>Santa Catarina</label>
+													<input id="saopaulo" type="checkbox" value="sp" class="exibidora-check"><label for="saopaulo"><span></span>São Paulo</label>
+													<input id="seara" type="checkbox" value="se" class="exibidora-check"><label for="seara"><span></span>Seará</label>
+													<input id="tocantins" type="checkbox" value="to" class="exibidora-check"><label for="tocantins"><span></span>Tocantins</label>
+												</div>
+											</div>
+										</div>
+
+										<div class="globo-select2">
+											<div>
+												<span class="exibidora-activate">EXIBIDORA</span>
+												<b class="caret" id="caret-exibidora"></b>
+											</div>
+											<div class="exibidora">
+												<div class="exibidora-titulo">
+													<span>Selecione o estado ou os estados que deseja ver a exibidora</span>
+												</div>
+												<div id="exibidora-conteudo">
+													<input id="exibidora-todos" type="checkbox" value="ex-all" class="exibidora-check"><label for="exibidora-todos"><span></span>Todos</label>
+													<div id="sp" class="common" data-estado="sp">
+														<input id="sp1" type="checkbox" value="sp1" class="exibidora-check"><label for="sp1"><span></span>São Paulo</label>
+														<input id="sjc" type="checkbox" value="sjc" class="exibidora-check"><label for="sjc"><span></span>S.J.Campos</label>
+														<input id="tau" type="checkbox" value="tau" class="exibidora-check"><label for="tau"><span></span>Taubaté</label>
+														<input id="bau" type="checkbox" value="bau" class="exibidora-check"><label for="bau"><span></span>Bauru</label>
+														<input id="sjr" type="checkbox" value="sjr" class="exibidora-check"><label for="sjr"><span></span>S.J.Rio Preto</label>
+														<input id="sor" type="checkbox" value="sor" class="exibidora-check"><label for="sor"><span></span>Sorocaba</label>
+														<input id="itp" type="checkbox" value="itp" class="exibidora-check"><label for="itp"><span></span>Itapetininga</label>
+														<input id="cam" type="checkbox" value="cam" class="exibidora-check"><label for="cam"><span></span>Campinas</label>
+														<input id="rib" type="checkbox" value="rib" class="exibidora-check"><label for="rib"><span></span>Ribeirão Preto</label>
+														<input id="sca" type="checkbox" value="sca" class="exibidora-check"><label for="sca"><span></span>São Carlos</label>
+														<input id="moc" type="checkbox" value="moc" class="exibidora-check"><label for="moc"><span></span>M. das Cruzes</label>
+														<input id="san" type="checkbox" value="san" class="exibidora-check"><label for="san"><span></span>Santos</label>
+														<input id="prp" type="checkbox" value="prp" class="exibidora-check"><label for="prp"><span></span>Pr.Prudente</label>
+													</div>
+													<div id="rj" class="common">
+														<input id="rjn" type="checkbox" value="rjn" class="exibidora-check"><label for="rjn"><span></span>Rio de Janeiro</label>
+														<input id="cab" type="checkbox" value="cab" class="exibidora-check"><label for="cab"><span></span>Cabo Frio</label>
+														<input id="fri" type="checkbox" value="fri" class="exibidora-check"><label for="fri"><span></span>Friburgo</label>
+														<input id="flu" type="checkbox" value="flu" class="exibidora-check"><label for="flu"><span></span>Campos</label>
+														<input id="res" type="checkbox" value="res" class="exibidora-check"><label for="res"><span></span>Resende</label>
+													</div>
+													<div id="es" class="common">
+														<input id="vit" type="checkbox" value="vit" class="exibidora-check"><label for="vit"><span></span>Vitória</label>
+														<input id="es2" type="checkbox" value="es2" class="exibidora-check"><label for="es2"><span></span>Linhares</label>
+														<input id="col" type="checkbox" value="col" class="exibidora-check"><label for="col"><span></span>Colatina</label>
+														<input id="cac" type="checkbox" value="cac" class="exibidora-check"><label for="cac"><span></span>C.Itapemirim</label>
+													</div>
+													<div id="mg" class="common">
+														<input id="bh" type="checkbox" value="bh" class="exibidora-check"><label for="bh"><span></span>B.Horizonte</label>
+														<input id="jf" type="checkbox" value="jf" class="exibidora-check"><label for="jf"><span></span>Juiz de Fora</label>
+														<input id="fab" type="checkbox" value="fab" class="exibidora-check"><label for="fab"><span></span>C.Fabriciano</label>
+														<input id="mtc" type="checkbox" value="mtc" class="exibidora-check"><label for="mtc"><span></span>Montes Claros</label>
+														<input id="var" type="checkbox" value="var" class="exibidora-check"><label for="var"><span></span>Varginha</label>
+														<input id="ube" type="checkbox" value="ube" class="exibidora-check"><label for="ube"><span></span>Uberlândia</label>
+														<input id="uba" type="checkbox" value="uba" class="exibidora-check"><label for="uba"><span></span>Uberaba</label>
+														<input id="itu" type="checkbox" value="itu" class="exibidora-check"><label for="itu"><span></span>Ituiutaba</label>
+														<input id="axa" type="checkbox" value="axa" class="exibidora-check"><label for="axa"><span></span>Araxá</label>
+													</div>
+													<div id="rs" class="common">
+														<input id="rs1" type="checkbox" value="rs1" class="exibidora-check"><label for="rs1"><span></span>Porto Alegre</label>
+														<input id="cxs" type="checkbox" value="cxs" class="exibidora-check"><label for="cxs"><span></span>Caxias do Sul</label>
+														<input id="sma" type="checkbox" value="sma" class="exibidora-check"><label for="sma"><span></span>Santa Maria</label>
+														<input id="pel" type="checkbox" value="pel" class="exibidora-check"><label for="pel"><span></span>Pelotas</label>
+														<input id="pfo" type="checkbox" value="pfo" class="exibidora-check"><label for="pfo"><span></span>Passo Fundo</label>
+														<input id="str" type="checkbox" value="str" class="exibidora-check"><label for="str"><span></span>Santa Rosa</label>
+														<input id="cal" type="checkbox" value="cal" class="exibidora-check"><label for="cal"><span></span>Cruz Alta</label>
+														<input id="bag" type="checkbox" value="bag" class="exibidora-check"><label for="bag"><span></span>Bagé</label>
+														<input id="uru" type="checkbox" value="uru" class="exibidora-check"><label for="uru"><span></span>Uruguaiana</label>
+														<input id="ere" type="checkbox" value="ere" class="exibidora-check"><label for="ere"><span></span>Erechim</label>
+														<input id="rge" type="checkbox" value="rge" class="exibidora-check"><label for="rge"><span></span>Rio Grande</label>
+													</div>
+													<div id="pr" class="common">
+														<input id="cur" type="checkbox" value="cur" class="exibidora-check"><label for="cur"><span></span>Curitiba</label>
+														<input id="mar" type="checkbox" value="mar" class="exibidora-check"><label for="mar"><span></span>Maringá</label>
+														<input id="lon" type="checkbox" value="lon" class="exibidora-check"><label for="lon"><span></span>Londrina</label>
+														<input id="foz" type="checkbox" value="foz" class="exibidora-check"><label for="foz"><span></span>Foz do Iguaçu</label>
+														<input id="cav" type="checkbox" value="cav" class="exibidora-check"><label for="cav"><span></span>Cascavel</label>
+														<input id="pr3" type="checkbox" value="pr3" class="exibidora-check"><label for="pr3"><span></span>Paranavai</label>
+														<input id="gav" type="checkbox" value="gav" class="exibidora-check"><label for="gav"><span></span>Guarapuava</label>
+														<input id="pgr" type="checkbox" value="pgr" class="exibidora-check"><label for="pgr"><span></span>Ponta Grossa</label>
+													</div>
+													<div id="sc" class="common">
+														<input id="sc1" type="checkbox" value="sc1" class="exibidora-check"><label for="sc1"><span></span>Florianópolis</label>
+														<input id="blu" type="checkbox" value="blu" class="exibidora-check"><label for="blu"><span></span>Blumenau</label>
+														<input id="cha" type="checkbox" value="cha" class="exibidora-check"><label for="cha"><span></span>Chapecó</label>
+														<input id="joi" type="checkbox" value="joi" class="exibidora-check"><label for="joi"><span></span>Joinville</label>
+														<input id="cri" type="checkbox" value="cri" class="exibidora-check"><label for="cri"><span></span>Criciúma</label>
+														<input id="joa" type="checkbox" value="joa" class="exibidora-check"><label for="joa"><span></span>Joaçaba</label>
+													</div>
+													<div id="pe" class="common">
+														<input id="pe1" type="checkbox" value="pe1" class="exibidora-check"><label for="pe1"><span></span>Recife</label>
+														<input id="crr" type="checkbox" value="crr" class="exibidora-check"><label for="crr"><span></span>Caruaru</label>
+														<input id="pet" type="checkbox" value="pet" class="exibidora-check"><label for="pet"><span></span>Petrolina</label>
+													</div>
+													<div id="ba" class="common">
+														<input id="sal" type="checkbox" value="sal" class="exibidora-check"><label for="sal"><span></span>Salvador</label>
+														<input id="fei" type="checkbox" value="fei" class="exibidora-check"><label for="fei"><span></span>F.Santana</label>
+														<input id="ita" type="checkbox" value="ita" class="exibidora-check"><label for="ita"><span></span>Itabuna</label>
+														<input id="vdc" type="checkbox" value="vdc" class="exibidora-check"><label for="vdc"><span></span>V.Conquista</label>
+														<input id="jua" type="checkbox" value="jua" class="exibidora-check"><label for="jua"><span></span>Juazeiro</label>
+														<input id="bar" type="checkbox" value="bar" class="exibidora-check"><label for="bar"><span></span>Barreiras</label>
+													</div>
+													<div id="ce" class="common">
+														<input id="ce1" type="checkbox" value="ce1" class="exibidora-check"><label for="ce1"><span></span>Fortaleza</label>
+														<input id="ce2" type="checkbox" value="ce2" class="exibidora-check"><label for="ce2"><span></span>Juazeiro do Norte</label>
+														<input id="rdc" type="checkbox" value="rdc" class="exibidora-check"><label for="rdc"><span></span>Redenção</label>
+													</div>
+													<div id="ma" class="common">
+														<input id="ma1" type="checkbox" value="ma1" class="exibidora-check"><label for="ma1"><span></span>São Luiz</label>
+														<input id="imp" type="checkbox" value="imp" class="exibidora-check"><label for="imp"><span></span>Imperatriz</label>
+														<input id="bas" type="checkbox" value="bas" class="exibidora-check"><label for="bas"><span></span>Balsas</label>
+														<input id="sti" type="checkbox" value="sti" class="exibidora-check"><label for="sti"><span></span>Santa Inês</label>
+														<input id="cdo" type="checkbox" value="cdo" class="exibidora-check"><label for="cdo"><span></span>Codó</label>
+													</div>
+													<div id="pb" class="common">
+														<input id="jp" type="checkbox" value="jp" class="exibidora-check"><label for="jp"><span></span>João Pessoa</label>
+														<input id="cpg" type="checkbox" value="cpg" class="exibidora-check"><label for="cpg"><span></span>Campina Gde.</label>
+													</div>
+													<div id="rn" class="common">
+														<input id="nat" type="checkbox" value="nat" class="exibidora-check"><label for="nat"><span></span>Natal</label>
+														<input id="na2" type="checkbox" value="na2" class="exibidora-check"><label for="na2"><span></span>Mossoró</label>
+														<input id="stc" type="checkbox" value="stc" class="exibidora-check"><label for="stc"><span></span>Santa Cruz</label>
+													</div>	
+													<div id="al" class="common">
+														<input id="mac" type="checkbox" value="mac" class="exibidora-check"><label for="mac"><span></span>Maceió</label>
+													</div>
+													<div id="pi" class="common">
+														<input id="ter" type="checkbox" value="ter" class="exibidora-check"><label for="ter"><span></span>Teresina</label>
+														<input id="fno" type="checkbox" value="fno" class="exibidora-check"><label for="fno"><span></span>Floriano</label>
+													</div>
+													<div id="se" class="common">
+														<input id="ser" type="checkbox" value="ser" class="exibidora-check"><label for="ser"><span></span>Sergipe</label>
+													</div>
+													<div id="df" class="common">
+														<input id="dfb" type="checkbox" value="dfb" class="exibidora-check"><label for="dfb"><span></span>Brasília</label>
+													</div>
+													<div id="go" class="common">
+														<input id="go1" type="checkbox" value="go1" class="exibidora-check"><label for="go1"><span></span>Goiânia</label>
+														<input id="go2" type="checkbox" value="go2" class="exibidora-check"><label for="go2"><span></span>Anápolis</label>
+														<input id="rvd" type="checkbox" value="rvd" class="exibidora-check"><label for="rvd"><span></span>Rio Verde</label>
+														<input id="lza" type="checkbox" value="lza" class="exibidora-check"><label for="lza"><span></span>Luziânia</label>
+														<input id="ibi" type="checkbox" value="ibi" class="exibidora-check"><label for="ibi"><span></span>Itumbiara</label>
+														<input id="cat" type="checkbox" value="cat" class="exibidora-check"><label for="cat"><span></span>Catalão</label>
+														<input id="prt" type="checkbox" value="prt" class="exibidora-check"><label for="prt"><span></span>Porangatu</label>
+														<input id="jat" type="checkbox" value="jat" class="exibidora-check"><label for="jat"><span></span>Jataí</label>
+													</div>
+													<div id="ms" class="common">
+														<input id="ms1" type="checkbox" value="ms1" class="exibidora-check"><label for="ms1"><span></span>Campo Grande</label>
+														<input id="ms2" type="checkbox" value="ms2" class="exibidora-check"><label for="ms2"><span></span>Corumbá</label>
+														<input id="por" type="checkbox" value="por" class="exibidora-check"><label for="por"><span></span>Ponta Porã</label>
+													</div>
+													<div id="mt" class="common">
+														<input id="cui" type="checkbox" value="cui" class="exibidora-check"><label for="cui"><span></span>Cuiabá</label>
+														<input id="rod" type="checkbox" value="rod" class="exibidora-check"><label for="rod"><span></span>Rondonópolis</label>
+														<input id="sno" type="checkbox" value="sno" class="exibidora-check"><label for="sno"><span></span>Sinop</label>
+														<input id="tgs" type="checkbox" value="tgs" class="exibidora-check"><label for="tgs"><span></span>Tangará da Serra</label>
+													</div>
+													<div id="pa" class="common">
+														<input id="bel" type="checkbox" value="bel" class="exibidora-check"><label for="bel"><span></span>Belém</label>
+														<input id="tap" type="checkbox" value="tap" class="exibidora-check"><label for="tap"><span></span>Santarém</label>
+														<input id="mab" type="checkbox" value="mab" class="exibidora-check"><label for="mab"><span></span>Marabá</label>
+														<input id="itt" type="checkbox" value="itt" class="exibidora-check"><label for="itt"><span></span>Itaituba</label>
+														<input id="pam" type="checkbox" value="pam" class="exibidora-check"><label for="pam"><span></span>Paragominas</label>
+														<input id="tuc" type="checkbox" value="tuc" class="exibidora-check"><label for="tuc"><span></span>Tucuruí</label>
+														<input id="alt" type="checkbox" value="alt" class="exibidora-check"><label for="alt"><span></span>Altamira</label>
+														<input id="pup" type="checkbox" value="pup" class="exibidora-check"><label for="pup"><span></span>Parauapebas</label>
+														<input id="cas" type="checkbox" value="cas" class="exibidora-check"><label for="cas"><span></span>Castanhal</label>
+													</div>
+													<div id="to" class="common">
+														<input id="pal" type="checkbox" value="pal" class="exibidora-check"><label for="pal"><span></span>Palmas</label>
+														<input id="gur" type="checkbox" value="gur" class="exibidora-check"><label for="gur"><span></span>Gurupi</label>
+														<input id="ina" type="checkbox" value="ina" class="exibidora-check"><label for="ina"><span></span>Araguaína</label>
+													</div>
+													<div id="ap" class="common">
+														<input id="amp" type="checkbox" value="amp" class="exibidora-check"><label for="amp"><span></span>Amapá</label>
+													</div>
+													<div id="am" class="common">
+														<input id="man" type="checkbox" value="man" class="exibidora-check"><label for="man"><span></span>Manaus</label>
+														<input id="itc" type="checkbox" value="itc" class="exibidora-check"><label for="itc"><span></span>Itacoatiara</label>
+														<input id="pin" type="checkbox" value="pin" class="exibidora-check"><label for="pin"><span></span>Parintins</label>
+													</div>
+													<div id="ro" class="common">
+														<input id="ron" type="checkbox" value="ron" class="exibidora-check"><label for="ron"><span></span>Porto Velho</label>
+														<input id="gua" type="checkbox" value="gua" class="exibidora-check"><label for="gua"><span></span>Guajará Mirim</label>
+														<input id="jip" type="checkbox" value="jip" class="exibidora-check"><label for="jip"><span></span>Ji-Paraná</label>
+														<input id="coa" type="checkbox" value="coa" class="exibidora-check"><label for="coa"><span></span>Cacoal</label>
+														<input id="vlh" type="checkbox" value="vlh" class="exibidora-check"><label for="vlh"><span></span>Vilhena</label>
+														<input id="ari" type="checkbox" value="ari" class="exibidora-check"><label for="ari"><span></span>Ariquemes</label>
+													</div>
+													<div id="ac" class="common">
+														<input id="acr" type="checkbox" value="acr" class="exibidora-check"><label for="acr"><span></span>Rio Branco</label>
+														<input id="czs" type="checkbox" value="czs" class="exibidora-check"><label for="czs"><span></span>Cruzeiro do Sul</label>
+													</div>
+													<div id="rr" class="common">
+														<input id="ror" type="checkbox" value="ror" class="exibidora-check"><label for="ror"><span></span>Roraima</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button class="btn-ok">OK</button>	
+									</div>
+
+								</div>
+
+							</section>
+						</div>
+						<div class="menu-mobile">
+							<i class="fa fa-bars" aria-hidden="true"></i>
+						</div>
+					</div>
+					<nav>
+						<ul>
+							<li><a data-section="informacoes" href="#informacoes">Informações de Consumo</a></li>
+							<li><a data-section="tendencias" href="#tendencias">Tendências</a></li>
+							<li><a data-section="concentracao" href="#concentracao">Concentração de Renda</a></li>
+							<li><a data-section="mapa" href="#mapa">Mapa dos Meses</a></li>
+							<li><a data-section="book" href="#book">Book da Mina (PDF)</a></li>
+						</ul>
+					</nav>
+
+				</div>
+
+				<div class="menu-color"> 
+					<div class="container">
+						<div class="flex2">
+							<section id="menu2">
+								<div class="menu-down">
+									<div class="menu-a">
+										<a id="info" data-section="informacoes" href="#informacoes">INFORMAÇÕES DE CONSUMO</a>
+									</div>
+									<div class="menu-a">
+										<a id="tend" data-section="tendencias" href="#tendencias">TENDÊNCIAS</a>
+									</div>
+									<div class="menu-a">
+										<a id="conc" data-section="concentracao" href="#concentracao">CONCENTRAÇÃO DE RENDA</a>
+									</div>
+									<div class="menu-a">
+										<a id="map" data-section="mapa" href="#mapa">MAPA DOS MESES</a>
+									</div>
+									<div class="menu-a">
+										<a id="bok" data-section="book" href="#book">BOOK MAPA DA MINA (PDF)</a>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<section id="header" class="flex-properties-r">
+
+				<div>
+					<div class="container flex-properties-r">
+						<div class="flex-properties-c selo-header">
+							<div style="margin-bottom: -2%;"><span id="selo-m">MAPA</span></div>
+							<div class="linha2"></div>
+							<div><span id="selo-m2">DA MINA</span></div>
+						</div>
+
+						<div class="oque">
+							<span>O QUE É</span>
+							<span>?<br></span>
+							<span>O Mapa da Mina é um importante instrumento de planejamento de mídia que permite potencializar os resultados da comunicação com o consumidor, a partir de um levantamento com informações do agronegócio no Brasil.</span>
+						</div>
+					</div>
+					<div class="infografico">
+						<img src="img/infografico2.png">
+					</div>
+					<div class="infografico-mobile">
+						<img src="img/infografico-m.png">
+					</div>
+				</div>
+
+
+			</section>
+		</div>
+
+		<section id="informacoes" class="container">
+
+			<div class="title">
+				<span>INFORMAÇÕES DE CONSUMO</span>
+			</div>
+
+			<div class="border-1">
+				<span class="info-titles">COMO ATINGIR CONSUMIDORES POTENCIAIS NAS PRINCIPAIS REGIÕES PRODUTORAS</span>
+				<span class="info-text">Confira como a circulação de renda proveniente do agronegócio foi fundamental para o desenvolvimento da cidade de Rio Verde, no interior do Estado de Goiás.</span>
+			</div>
+
+			<div>
+				<span class="info-text">Ao analisar o PIB per capita da região em 2014, percebe-se que Rio Verde apresenta um valor 20,7% maior que o do Brasil. O dado é reflexo de um rápido crescimento econômico, tecnológico e populacional nos últimos anos. Em 19 anos, o IDH da região cresceu 55%, um aumento notável em pouco tempo que pode também ser notado nos demais municípios.
+				</span>
+			</div>
+
+			<div class="info-column">
+				<div class="flexgrow"><span class="info-text">É importante destacar que embora a região ainda esteja em crescimento, Rio Verde se tornou um polo industrial importante na produção de soja, milho e girassol. Além de concentrar importantes usinas de álcool e açúcar e ocupar o 2º lugar no ranking de produção de etanol e 1º na de biodiesel. Rio Verde tem 723 indústrias dos segmentos alimentício, processados de soja e milho, açúcar e álcool, metalmecânica e eletricidade que empregam quase 20 mil pessoas.
+				</span></div>
+				<div id="margin-pib"><img src="img/pib.png"></div>
+				<div id="margin-idh"><img src="img/idh.png"></div>
+			</div>
+
+			<div class="indice">
+				<span>ÍNDICE DE DESENVOLVIMENTO DAS CATEGORIAS</span>
+				<span>CATEGORIAS EM DESTAQUE - CONSUMO PER CAPITA ACIMA DA MÉDIA (BRASIL = 100)</span>
+				<div class="background-main">
+					<img class="background" src="img/indice-background.png">
+					<div class="flex-properties-r itens">
+						<div class="flex-properties-c">
+							<img src="img/caminhao.png" style="height: 40px; margin-top: 4%;">
+							<span class="background-text itens-text" style="margin-top: 3%;">Frota de Veículos Utilitários</span>
+							<span class="background-text itens-n">149</span>
+						</div>
+						<div class="flex-properties-c">
+							<img src="img/casa.png" style="height: 40px; margin-top: 4%;">
+							<span class="background-text itens-text" style="margin-top: 3%;">Material de Construção</span>
+							<span class="background-text itens-n">134</span>
+						</div>
+						<div class="flex-properties-c">
+							<img src="img/carro.png" style="height: 40px; margin-top: 4%;">
+							<span class="background-text itens-text" style="margin-top: 3%;">Gastos com Veículos</span>
+							<span class="background-text itens-n">120</span>
+						</div>
+						<div class="flex-properties-c">
+							<img src="img/aviao.png" style="height: 40px; margin-top: 4%;">
+							<span class="background-text itens-text" style="margin-top: 3%;">Despesas com Viagens</span>
+							<span class="background-text itens-n">104</span>
+						</div>
+					</div>
+				</div>
+				<div class="indice-mob">
+					<img src="img/indice-mobile.png">
+				</div>
+				<span class="fonte">Fonte: Atlas do Consumo (IPC Maps 2017)</span>
+			</div>
+
+			<div class="indice-text">
+				<span class="info-text">Com o rápido desenvolvimento do agro e da indústria, o poder de compra de seus habitantes cresceu notavelmente. Seus índices de desenvolvimento por categoria apresentam números mais altos ao comparar com os dados nacionais: 49% maior em Frota de Veículos Utilitários, 34% maior em Materiais de Construção, 20% maior em Gastos com Veículos e 4% maior com Despesas com Viagens. <br> <br> Com relação aos hábitos de lazer dos rio-verdenses, a cidade possui forte turismo rural com cachoeiras, trilhas e lagos, pescaria nos “pesque e pague” e nos rios. Nos finais de semana, a diversão fica por conta de passeios no shopping, em bares, ranchos, festas em casas de amigos, além de clubes locais com excelente qualidade e serviços. 
+				</span>
+			</div>
+
+			<div id="content">
+				<div class="simulacao">
+					<div class="content-1">
+						<div class="flex-properties-c content-text">
+							<span class="info-text-black">SIMULAÇÃO DE MÍDIA</span>
+							<span class="info-text">EM APENAS UMA SEMANA, VEICULANDO UMA INSERÇÃO NOS PROGRAMAS DE MAIOR AUDIÊNCIA, VOCÊ ATINGE MAIS DA METADE DOS TELESPECTADORES POTENCIAIS DA COBERTURA DA TV ANHANGUERA RIO VERDE E ALCANÇA:</span>
+						</div>
+
+						<div class="boxes flex-properties-c">
+							<div class="boxes-interna flex-properties-r">
+								<div style="width: 47%;">
+									<span class="info-text-black">46,7 mil</span>
+									<span class="info-text">ADULTOS, AB, COM MAIS DE 25 ANOS</span>
+								</div>
+								<div style="width: 38%; text-align: center;">
+									<img src="img/boxesgrupo.png">
+								</div>
+							</div>
+							<div class="boxes-interna flex-properties-r">
+								<div style="width: 47%;">
+									<span class="info-text-black">63,5 mil</span>
+									<span class="info-text">HOMENS, ABC, COM MAIS DE 25 ANOS</span>
+								</div>
+								<div style="width: 38%; text-align: center;">
+									<img src="img/boxespessoa.png">
+								</div>
+							</div>
+							<div class="boxes-interna flex-properties-r">
+								<div style="width: 47%;">
+									<span class="info-text-black">74,3 mil</span>
+									<span class="info-text">MULHERES, ABC COM MAIS DE 25 ANOS</span>
+								</div>
+								<div style="width: 38%; text-align: center;">
+									<img src="img/boxesmulher.png">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="simu-mobile">
+						<img src="img/simu-mobile.png">
+					</div>
+
+					<div class="content-2">
+						<img src="img/graficoprogramas3.png">
+					</div>
+				</div>
+				<div class="alcance">
+					<img class="alcance-d" src="img/graficoalcance3.png">
+					<img class="alcance-m" src="img/graficoalcancem.png">
+				</div> 
+
+			</div>
+
+			<div class="centralize">	
+				<div class="simulacao-elements">
+					<input type="submit" id="hideshow" class="btn-simulacao" value="CLIQUE E VEJA A SIMULAÇÃO DE MÍDIA"/><i class="fa fa-caret-down" aria-hidden="true"></i>
+				</div>
+			</div>
+
+		</section>
+
+
+		<section id="tendencias" class="container">
+
+			<div class="title">
+				<span>TENDÊNCIAS ECONÔMICAS</span>
+			</div>
+
+			<div class="tendencias-interna">
+
+				<div class="overlay">
+					<img src="img/agro1.png">
+					<div class="description">
+						<span class="description-content1">2017 NO AGRO</span>
+					</div>
+					<div class="description2-interna">
+						<span class="description-content2-interna">UM ANO DE DECISÃO E PROSPERIDADE</span>
+					</div>
+				</div> 
+
+				<div class="tendencias-text">
+					<span class="info-text">Para a agropecuária, o ano de 2017 não será marcado na história como um tempo de crise e incertezas. Será relembrado pelas notícias boas e conquistas que o campo trouxe para a economia brasileira. Das lavouras saiu uma safra que apresentou um record espetacular. É bom lembrar que era essa a trilha dos últimos 7 anos.</span>
+					<span class="info-text"><br><br>Foram seis records consecutivos de 2010 a 2015. Quem apontou fora da curva foi o ano de 2016. Mas a seca passou e a agricultura voltou a exibir sua boa forma em 2017. Em junho, a Conab estimou uma produção de grãos de 234 milhões de toneladas, um salto de 25% em relação à colheita anterior.
+					</span>
+					<span class="info-text" style="font-family: Globotipo Condensada Black;">O IBGE foi mais generoso: previu uma colheita de 238 milhões de toneladas, 29% a mais. </span>
+				</div>
+			</div>
+		</section>
+
+		<section id="concentracao" class="container">
+			<div class="title"><span>CONCENTRAÇÃO DE RENDA</span></div>
+			<div style="margin-bottom: 2%;"><span class="tabela-subtitulo">SELECIONE O ESTADO E OU A EXIBIDORA NA BUSCA ACIMA</span></div>
+			<div class="flex-properties-r">
+				<div class="elementos-tabela">
+					<img src="img/tabelas/tabela-header.png" class="itens-tabela">
+					<div class="tabela-exibidora">
+						<!-- São Paulo -->
+						<img data-exibidora="sp1" data-state="sp" src="img/tabelas/01.png">
+						<img data-exibidora="sjc" data-state="sp" src="img/tabelas/02.png">
+						<img data-exibidora="tau" data-state="sp" src="img/tabelas/03.png">
+						<img data-exibidora="bau" data-state="sp" src="img/tabelas/04.png">
+						<img data-exibidora="sjr" data-state="sp" src="img/tabelas/05.png">
+						<img data-exibidora="sor" data-state="sp" src="img/tabelas/06.png">
+						<img data-exibidora="itp" data-state="sp" src="img/tabelas/07.png">
+						<img data-exibidora="cam" data-state="sp" src="img/tabelas/08.png">
+						<img data-exibidora="rib" data-state="sp" src="img/tabelas/09.png">
+						<img data-exibidora="sca" data-state="sp" src="img/tabelas/10.png">
+						<img data-exibidora="moc" data-state="sp" src="img/tabelas/11.png">
+						<img data-exibidora="san" data-state="sp" src="img/tabelas/12.png">
+						<img data-exibidora="prp" data-state="sp" src="img/tabelas/13.png">
+						<!-- Rio de Janeiro -->
+						<img data-exibidora="rjn" src="img/tabelas/14.png">
+						<img data-exibidora="cab" src="img/tabelas/15.png">
+						<img data-exibidora="fri" src="img/tabelas/16.png">
+						<img data-exibidora="flu" src="img/tabelas/17.png">
+						<img data-exibidora="res" src="img/tabelas/18.png">
+
+						<!-- Espírito Santo -->
+						<img data-exibidora="vit" src="img/tabelas/19.png">
+						<img data-exibidora="es2" src="img/tabelas/20.png">
+						<img data-exibidora="col" src="img/tabelas/21.png">
+						<img data-exibidora="cac" src="img/tabelas/22.png">
+
+						<!-- Minas Gerais -->
+						<img data-exibidora="bh" src="img/tabelas/23.png">
+						<img data-exibidora="jf" src="img/tabelas/24.png">
+						<img data-exibidora="fab" src="img/tabelas/25.png">
+						<img data-exibidora="mtc" src="img/tabelas/26.png">
+						<img data-exibidora="var" src="img/tabelas/27.png">
+						<img data-exibidora="ube" src="img/tabelas/28.png">
+						<img data-exibidora="uba" src="img/tabelas/29.png">
+						<img data-exibidora="itu" src="img/tabelas/30.png">
+						<img data-exibidora="axa" src="img/tabelas/31.png">
+
+						<!-- Rio Grande do Sul -->
+						<img data-exibidora="rs1" src="img/tabelas/32.png">
+						<img data-exibidora="cxs" src="img/tabelas/33.png">
+						<img data-exibidora="sma" src="img/tabelas/34.png">
+						<img data-exibidora="pel" src="img/tabelas/35.png">
+						<img data-exibidora="pfo" src="img/tabelas/36.png">
+						<img data-exibidora="str" src="img/tabelas/37.png">
+						<img data-exibidora="stc" src="img/tabelas/38.png">
+						<img data-exibidora="cal" src="img/tabelas/39.png">
+						<img data-exibidora="bag" src="img/tabelas/40.png">
+						<img data-exibidora="uru" src="img/tabelas/41.png">
+						<img data-exibidora="ere" src="img/tabelas/42.png">
+
+						<!-- Paraná -->
+						<img data-exibidora="rge" src="img/tabelas/43.png">
+						<img data-exibidora="cur" src="img/tabelas/44.png">
+						<img data-exibidora="mar" src="img/tabelas/45.png">
+						<img data-exibidora="lon" src="img/tabelas/46.png">
+						<img data-exibidora="foz" src="img/tabelas/47.png">
+						<img data-exibidora="cav" src="img/tabelas/48.png">
+						<img data-exibidora="pr3" src="img/tabelas/49.png">
+						<img data-exibidora="gav" src="img/tabelas/50.png">
+						<img data-exibidora="pgr" src="img/tabelas/51.png">
+
+						<!-- Santa Catarina -->
+
+						<img data-exibidora="sc1" src="img/tabelas/52.png">
+						<img data-exibidora="blu" src="img/tabelas/53.png">
+						<img data-exibidora="cha" src="img/tabelas/54.png">
+						<img data-exibidora="joi" src="img/tabelas/55.png">
+						<img data-exibidora="cri" src="img/tabelas/56.png">
+						<img data-exibidora="joa" src="img/tabelas/57.png">
+
+						<!-- Pernambuco -->
+						<img data-exibidora="pe1" src="img/tabelas/58.png">
+						<img data-exibidora="crr" src="img/tabelas/59.png">
+						<img data-exibidora="pet" src="img/tabelas/60.png">
+
+						<!-- Bahia -->
+						<img data-exibidora="sal" src="img/tabelas/61.png">
+						<img data-exibidora="fei" src="img/tabelas/62.png">
+						<img data-exibidora="ita" src="img/tabelas/63.png">
+						<img data-exibidora="vdc" src="img/tabelas/64.png">
+						<img data-exibidora="jua" src="img/tabelas/65.png">
+						<img data-exibidora="bar" src="img/tabelas/66.png">
+
+						<!-- Ceará -->
+						<img data-exibidora="ce1" src="img/tabelas/67.png">
+						<img data-exibidora="ce2" src="img/tabelas/68.png">
+						<img data-exibidora="ma1" src="img/tabelas/69.png">
+
+						<!-- Maranhão -->
+						<img data-exibidora="imp" src="img/tabelas/70.png">
+						<img data-exibidora="bas" src="img/tabelas/72.png">
+						<img data-exibidora="sti" src="img/tabelas/73.png">
+						<img data-exibidora="cdo" src="img/tabelas/74.png">
+						<img data-exibidora="jp" src="img/tabelas/75.png">
+
+						<!-- Paraíba -->
+						<img data-exibidora="cpg" src="img/tabelas/76.png">
+						<img data-exibidora="nat" src="img/tabelas/77.png">
+
+						<!-- Rio Grande do Norte -->
+						<img data-exibidora="na2" src="img/tabelas/78.png">
+						<img data-exibidora="mac" src="img/tabelas/79.png">
+						<img data-exibidora="ter" src="img/tabelas/80.png">
+
+						<!-- Alagoas -->
+						<img data-exibidora="fno" src="img/tabelas/81.png">
+
+						<!-- Piauí -->
+						<img data-exibidora="ser" src="img/tabelas/82.png">
+						<img data-exibidora="dfb" src="img/tabelas/83.png">
+
+						<!-- Sergipe -->
+						<img data-exibidora="go1" src="img/tabelas/84.png">
+
+						<!-- Distrito Federal -->
+						<img data-exibidora="go2" src="img/tabelas/85.png">
+
+						<!-- Goiás -->
+						<img data-exibidora="rvd" src="img/tabelas/86.png">
+						<img data-exibidora="lza" src="img/tabelas/87.png">
+						<img data-exibidora="ibi" src="img/tabelas/88.png">
+						<img data-exibidora="cat" src="img/tabelas/89.png">
+						<img data-exibidora="prt" src="img/tabelas/90.png">
+						<img data-exibidora="jat" src="img/tabelas/91.png">
+						<img data-exibidora="ms1" src="img/tabelas/92.png">
+						<img data-exibidora="ms2" src="img/tabelas/93.png">
+
+						<!-- Mato Grosso do Sul -->
+						<img data-exibidora="por" src="img/tabelas/94.png">
+						<img data-exibidora="cui" src="img/tabelas/95.png">
+						<img data-exibidora="rod" src="img/tabelas/96.png">
+
+						<!-- Mato Grosso -->
+						<img data-exibidora="sno" src="img/tabelas/97.png">
+						<img data-exibidora="tgs" src="img/tabelas/98.png">
+						<img data-exibidora="bel" src="img/tabelas/99.png">
+						<img data-exibidora="tap" src="img/tabelas/100.png">
+
+						<!-- Pará -->
+						<img data-exibidora="mab" src="img/tabelas/101.png">
+						<img data-exibidora="itt" src="img/tabelas/102.png">
+						<img data-exibidora="rdc" src="img/tabelas/103.png">
+						<img data-exibidora="pam" src="img/tabelas/104.png">
+						<img data-exibidora="tuc" src="img/tabelas/105.png">
+						<img data-exibidora="alt" src="img/tabelas/106.png">
+						<img data-exibidora="pup" src="img/tabelas/107.png">
+						<img data-exibidora="cas" src="img/tabelas/108.png">
+						<img data-exibidora="pal" src="img/tabelas/109.png">
+
+						<!-- Tocantins -->
+						<img data-exibidora="gur" src="img/tabelas/110.png">
+						<img data-exibidora="ina" src="img/tabelas/111.png">
+						<img data-exibidora="amp" src="img/tabelas/112.png">
+
+						<!-- Amapá -->
+						<img data-exibidora="man" src="img/tabelas/113.png">
+
+						<!-- Amazonas -->
+						<img data-exibidora="itc" src="img/tabelas/114.png">
+						<img data-exibidora="pin" src="img/tabelas/115.png">
+						<img data-exibidora="ron" src="img/tabelas/116.png">
+
+						<!-- Rondônia -->
+						<img data-exibidora="gua" src="img/tabelas/117.png">
+						<img data-exibidora="jip" src="img/tabelas/118.png">
+						<img data-exibidora="coa" src="img/tabelas/119.png">
+						<img data-exibidora="vlh" src="img/tabelas/120.png">
+						<img data-exibidora="ari" src="img/tabelas/121.png">
+						<img data-exibidora="acr" src="img/tabelas/122.png">
+
+						<!-- Acre -->
+						<img data-exibidora="czs" src="img/tabelas/123.png">
+						<img data-exibidora="ror" src="img/tabelas/124.png">
+					</div>
+					<div class="flex-center">
+						<div class="botao-tabela">
+							<input type="submit" id="hideshow2" class="btn-tabela" value="CONFIRA A TABELA DE CONCENTRAÇÃO COMPLETA">
+							<i class="fa fa-caret-down" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+				<div class="flex-properties-c border-2">
+					<span class="info-text-border">Quanto mais intensa a <br> cor, maior a concentração de dinheiro na região.</span>
+					<span class="info-text-black-border">Você pode reforçar a mídia na região e aproveitar o dinheiro do agronegócio em toda a cadeia de consumo.</span>
+					<img src="img/escala.png" class="filete">
+					<span class="info-text-border-2">Escala de concentração <br>de renda</span>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="mapa" class="container">
+			<div class="title"><span>MAPA DOS MESES</span></div>
+			<div class="mapa-geral">
+				<div class="flex-properties-r mapa-menu">
+					<div class="mapa-meses"><button class="mapa-text" data-mes="0" data-href="img/janeiro.png">JAN</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="1" data-href="img/fevereiro.png">FEV</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="2" data-href="img/marco.png">MAR</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="3" data-href="img/abril.png">ABR</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="4" data-href="img/maio.png">MAI</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="5" data-href="img/junho.png">JUN</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="6" data-href="img/julho.png">JUL</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="7" data-href="img/agosto.png">AGO</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="8" data-href="img/setembro.png">SET</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="9" data-href="img/outubro.png">OUT</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="10" data-href="img/novembro.png">NOV</button></div>
+					<div class="mapa-meses"><button class="mapa-text" data-mes="11" data-href="img/dezembro.png">DEZ</button></div>
+				</div>
+				<div class="mapa-background"><img class="classe" src="img/janeiro.png"></div>
+			</div>
+			<div class="mapa-mobile">
+				<div class="centralize">	
+					<div class="mapa-buttons">
+						<input type="submit" id="hideshow3" class="btn-mapa" value="CLIQUE PARA SELECIONAR UM MÊS"/><i class="fa fa-caret-down" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div id="content-mapa">
+					<div class="flex-properties-r mapa-meses-mobile">
+						<button class="mapa-select" data-mes="0" data-href="img/janeiro.png">JAN</button>
+						<button class="mapa-select" data-mes="1" data-href="img/fevereiro.png">FEV</button>
+						<button class="mapa-select" data-mes="2" data-href="img/marco.png">MAR</button>
+						<button class="mapa-select" data-mes="3" data-href="img/abril.png">ABR</button>
+						<button class="mapa-select" data-mes="4" data-href="img/maio.png">MAI</button>
+						<button class="mapa-select" data-mes="5" data-href="img/junho.png">JUN</button>
+					</div>
+					<div class="flex-properties-r mapa-meses-mobile">
+						<button class="mapa-select" data-mes="6" data-href="img/julho.png">JUL</button>
+						<button class="mapa-select" data-mes="7" data-href="img/agosto.png">AGO</button>
+						<button class="mapa-select" data-mes="8" data-href="img/setembro.png">SET</button>
+						<button class="mapa-select" data-mes="9" data-href="img/outubro.png">OUT</button>
+						<button class="mapa-select" data-mes="10" data-href="img/novembro.png">NOV</button>
+						<button class="mapa-select" data-mes="11" data-href="img/dezembro.png">DEZ</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="book">
+			<div  class="container">
+				<div class="title"><span>Mapa da Mina</span></div>
+				<div class="flex-properties-r">
+					<div id="flipbook">
+						<div class="hard"><img src="img/mapadamina2017/mapadamina2017-001.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-002.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-003.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-004.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-005.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-006.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-007.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-008.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-009.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-010.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-011.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-012.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-013.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-014.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-015.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-016.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-017.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-018.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-019.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-020.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-021.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-022.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-023.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-024.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-025.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-026.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-027.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-028.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-029.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-030.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-031.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-032.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-033.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-034.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-035.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-036.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-037.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-038.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-039.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-040.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-041.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-042.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-043.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-044.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-045.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-046.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-047.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-048.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-049.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-050.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-051.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-052.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-053.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-054.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-055.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-056.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-057.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-058.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-059.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-060.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-061.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-062.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-063.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-064.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-065.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-066.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-067.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-068.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-069.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-070.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-071.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-072.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-073.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-074.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-075.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-076.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-077.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-078.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-079.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-080.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-081.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-082.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-083.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-084.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-085.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-086.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-087.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-088.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-089.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-090.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-091.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-092.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-093.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-094.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-095.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-096.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-097.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-098.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-099.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-100.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-101.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-102.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-103.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-104.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-105.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-106.jpg"></div>
+						<div><img src="img/mapadamina2017/mapadamina2017-107.jpg"></div>
+						<div class="hard"><img src="img/mapadamina2017/mapadamina2017-108.jpg"></div>
+					</div>
+				</div>
+				<div style="display: flex; margin-top: 3%;">
+					<div class="flex-start">
+						<button id="firstBtn"><i class="fa fa-step-backward" aria-hidden="true"></i>
+						</button>
+
+						<button id="prevBtn"><i class="fa fa-caret-left" aria-hidden="true"></i>
+						</button>
+					</div>
+
+					<div class="area-download">
+						<div class="btn-download">
+							<a href="http://www.portfolioglobo.com.br/mapadamina/mapadamina2017.pdf" download="Mapa da Mina" class="download-a">
+								<input type="submit" class="download" value="DOWNLOAD DO BOOK"/>
+								<i class="fa fa-download" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="flex-end">
+						<button id="nextBtn"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+						<button id="lastBtn"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</body>
+	</html>

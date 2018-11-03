@@ -1,0 +1,80 @@
+#flipbook{
+	overflow: hidden;
+}
+
+#prevBtn, #nextBtn, #firstBtn, #lastBtn{
+	width: 45px;
+	height: 34px;
+	background-color: #2b3033;
+	border: transparent;
+	color: #fbcd33;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#firstBtn, #nextBtn{
+	margin-right: 4%;
+}
+
+#prevBtn:hover, #nextBtn:hover, #firstBtn:hover, #lastBtn:hover{
+	color: #333;
+	background-color: #fbcd33;
+	border: solid;
+	border-color: #333;
+}
+
+#prevBtn:focus, #nextBtn:focus, #firstBtn:focus, #lastBtn:focus{
+	outline:0;
+}
+
+
+#book .fa{
+	font-size: 20px;
+	padding-right: 3%;
+}
+
+#book .fa-step-backward, #book .fa-step-forward{
+	font-size: 17px;
+}
+
+
+.fa-caret-left{
+	background-color: transparent;
+	font-size: 17px;
+	height: 4%;
+	text-align: center;
+}
+
+#book .fa-caret-left, #book .fa-caret-down{
+	background-color: transparent;
+}
+
+
+
+.btn-download{
+	display: flex;
+	align-items: center;
+	border-style: solid;
+	border-color: #2b3033;
+	margin-bottom: 5%;
+	margin-top: 3%;
+	background-color: #fbcd33;
+}
+
+.btn-download:hover{
+	background-color: white;
+	color: #fbcd33;
+	transition: all .4s ease;
+}
+
+.download{
+	border: none;
+	background-color: transparent;
+	font-size: 18px;
+	font-family: Globotipo Condensada Black;
+}
+
+.download:focus{
+	outline: 0;
+}

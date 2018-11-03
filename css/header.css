@@ -1,0 +1,74 @@
+.header{
+	background-color: #fff;
+}
+
+
+.topo1{
+	height: 65px;
+	display: flex;
+    align-items: center;
+    margin-left: 4%;
+}
+
+.topo2{
+	height: 47px;
+	background-color: #f0f0f0;
+	font-size: 12px;
+	font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.topo2 ul{
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+.topo2 li{
+	list-style: none;
+	cursor: pointer;
+	border-bottom: 4px solid #B0B0B0;
+	width: 100%;
+	text-align: center;
+	line-height: 3.5;
+}
+
+.topo2 a{
+	color: #B0B0B0;
+	font-weight: bolder;
+}
+
+#home-hover:hover, #midia-hover:hover, #sis-hover:hover{
+	border-bottom: 4px solid #5988f2; 
+}
+
+#home-hover:hover a, #midia-hover:hover a, #sis-hover:hover a{
+	color: #5988f2;
+}
+
+#programacao-hover:hover{
+	border-bottom: 4px solid #f3a249;
+}
+
+#programacao-hover:hover a{
+	color: #f3a249;
+}
+
+#projetos-hover:hover{
+	border-bottom: 4px solid #63a740;
+}
+
+#projetos-hover:hover a{
+	color: #63a740;
+}
+
+#bip-hover:hover{
+	border-bottom: 4px solid #ef494a;
+}
+
+#bip-hover:hover a{
+	color: #ef494a;
+}
+
